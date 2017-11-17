@@ -53,7 +53,32 @@ export class Actividad1 implements EventsAdminListener{
      * DE SALIR EN LA ESQUINA COMO SALE EN EL LA PAGINA WEB. HABRA QUE QUITAR EL PANEL Y USAR WINDOW
      */
     private crearEscenarioMenu():void{
-   
+        let pmw=DataHolder.instance.nScreenWidth*0.3;
+        let pmh=DataHolder.instance.nScreenHeight*0.45;
+        let pmx=DataHolder.instance.nScreenWidth2-(pmw>>1);
+        let pmy=DataHolder.instance.nScreenHeight2-(pmh>>1);
+       
+        this.panelMenu=new Imagen(this.motor,pmx,pmy,pmw,pmh);
+        this.panelMenu.setImg('./assets/transparente.png');
+        this.motor.addViewToParentView(this.imagenFondo,this.panelMenu);
+        
+        this.botonInicio = new Button(this.motor,this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/1.3,this.panelMenu.w/2,this.panelMenu.h/8);
+        this.botonInicio.setImagePath('./assets/btn.png');
+        this.botonInicio.setTexto("New game");
+        this.motor.addViewToParentView(this.panelMenu,this.botonInicio);
+        this.botonInicio.setListener(this);
+        
+        this.botonCargar = new Button(this.motor,this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/1.78,this.panelMenu.w/2,this.panelMenu.h/8);
+        this.botonCargar.setImagePath('./assets/btn.png');
+        this.botonCargar.setTexto("Charge");
+        this.motor.addViewToParentView(this.panelMenu,this.botonCargar);
+        this.botonCargar.setListener(this);
+        
+        this.botonSalir = new Button(this.motor,this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/2.7,this.panelMenu.w/2,this.panelMenu.h/8);
+        this.botonSalir.setImagePath('./assets/btn.png');
+        this.botonSalir.setTexto("Out");
+        this.motor.addViewToParentView(this.panelMenu,this.botonSalir);
+        this.botonSalir.setListener(this);
     
     }
 
