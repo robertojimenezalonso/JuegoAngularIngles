@@ -386,6 +386,28 @@ export class Actividad1 implements EventsAdminListener{
 
         
 
+        this.respuesta1.setSize(this.window1.w/7,this.window1.h/18);
+        this.respuesta1.setPosition(this.window1.w-this.window1.w/1.43,this.window1.h-this.window1.h/1.5);
+
+
+       
+
+        this.respuesta2.setSize(this.window1.w/7,this.window1.h/18);
+        this.respuesta2.setPosition(this.window1.w-this.window1.w/1.93,this.window1.h-this.window1.h/1.5);
+
+        this.respuesta3.setSize(this.window1.w/7,this.window1.h/18);
+        this.respuesta3.setPosition(this.window1.w-this.window1.w/1.13,this.window1.h-this.window1.h/1.5);
+
+        this.respuesta4.setSize(this.window1.w/7,this.window1.h/18);
+        this.respuesta4.setPosition(this.window1.w-this.window1.w/2.93,this.window1.h-this.window1.h/1.5);
+
+        this.window1.btnWindow.setSize(this.window1.w/7,this.window1.h/18);
+        this.window1.btnWindow.setPosition(this.window1.w-this.window1.w/5.5,this.window1.h-this.window1.h/1.04);
+
+        
+
+
+
       
       }
 
