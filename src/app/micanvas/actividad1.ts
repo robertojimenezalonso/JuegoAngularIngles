@@ -203,7 +203,24 @@ export class Actividad1 implements EventsAdminListener{
 
     private seteoTexto(num:number):void{
       
-    
+        if(this.resp[num]==null){
+            this.seteoImgGanador();
+        }else{
+            this.lblPregunta.setTexto(this.preg[num]);
+            for (var index = 0; index < this.resp[num].length; index++) {
+                if(index==0){
+                    this.respuesta1.setTexto(this.resp[num][index]);
+                }else if(index==1){
+                    this.respuesta2.setTexto(this.resp[num][index]);
+                }else if(index==2){
+                    this.respuesta3.setTexto(this.resp[num][index]);
+                }else if(index==3){
+                    this.respuesta4.setTexto(this.resp[num][index]);
+                } 
+                    
+            }
+        }
+        
             
     }
 
