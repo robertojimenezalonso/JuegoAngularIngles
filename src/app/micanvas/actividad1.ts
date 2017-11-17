@@ -193,7 +193,11 @@ export class Actividad1 implements EventsAdminListener{
 
 
     private bPreguntas(blVisible:boolean):void{
-   
+        this.motor.setViewVisibility(this.lblPregunta.uid,blVisible);
+        this.motor.setViewVisibility(this.respuesta1.uid,blVisible);
+        this.motor.setViewVisibility(this.respuesta2.uid,blVisible);
+        this.motor.setViewVisibility(this.respuesta3.uid,blVisible);
+        this.motor.setViewVisibility(this.respuesta4.uid,blVisible);
 
     }
 
