@@ -356,6 +356,10 @@ export class Actividad1 implements EventsAdminListener{
       
     screenSizeChanged?(vWidth:number,vHeight:number):void{
 
+        let pmw=DataHolder.instance.nScreenWidth*0.3;
+        let pmh=DataHolder.instance.nScreenHeight*0.45;
+        let pmx=DataHolder.instance.nScreenWidth2-(pmw>>1);
+        let pmy=DataHolder.instance.nScreenHeight2-(pmh>>1);
 
         console.log("SE HA ACTUALIZADO EL TEMAÑO DE LA PANTALLA");
 
