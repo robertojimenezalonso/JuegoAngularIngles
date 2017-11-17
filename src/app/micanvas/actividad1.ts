@@ -174,7 +174,9 @@ export class Actividad1 implements EventsAdminListener{
             this.motor.setViewVisibility(this.imgVidas.uid,true);
             this.lblNumVidas.setTexto("Has perdido!!!");
             setTimeout(function() {
-        
+                aux.motor.setViewVisibility(aux.imgVidas.uid,false);
+                aux.motor.setViewVisibility(aux.window1.uid,false);
+                aux.motor.setViewVisibility(aux.panelMenu.uid,true);
                
               }, 3000);
 
