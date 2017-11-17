@@ -343,6 +343,15 @@ export class Actividad1 implements EventsAdminListener{
                   
                  }
 
+                 if(this.indicePreguntaSiguiente==this.indicePreguntaAnterior){
+                    this.seteoImgPerdedor(--this.vidasJuego);
+        
+                }
+                   
+                   }
+               
+
+                }
 
       
     screenSizeChanged?(vWidth:number,vHeight:number):void{
