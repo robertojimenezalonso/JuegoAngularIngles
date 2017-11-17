@@ -148,7 +148,19 @@ export class Actividad1 implements EventsAdminListener{
 
     private seteoImgGanador():void{
        
-   
+        var aux=this;
+        
+        this.motor.setViewVisibility(this.imgGanador.uid,true);
+        this.bPreguntas(false);
+        
+        setTimeout(function() {
+            aux.motor.setViewVisibility(aux.window1.uid,false);
+            aux.motor.setViewVisibility(aux.panelMenu.uid,true);
+            aux.indicePreguntaSiguiente=0;
+            console.log("indice" + aux.indicePreguntaSiguiente);
+          }, 3000);
+          
+        
     }
 
 
