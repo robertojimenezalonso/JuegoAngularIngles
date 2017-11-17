@@ -412,3 +412,5 @@ export class Actividad1 implements EventsAdminListener{
       }
 
     }
+
+    //Fase 1º, estruscturación de preguntas, escala de nivel, algo de diseño y responsive completo
