@@ -381,8 +381,10 @@ export class Actividad1 implements EventsAdminListener{
         this.botonSalir.setPosition(this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/2.7);
 
       
-    
+        this.window1.setSize(DataHolder.instance.nScreenWidth,DataHolder.instance.nScreenHeight);
+      
 
+        
 
       
       }
