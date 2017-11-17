@@ -166,7 +166,25 @@ export class Actividad1 implements EventsAdminListener{
 
     private seteoImgPerdedor(numVidas:number):void{
         var aux=this;
-     
+        console.log("tus vidas son: " +numVidas);
+        if(numVidas<0){
+            this.vidasJuego=3;
+            this.indicePreguntaSiguiente=0;
+            this.indicePreguntaAnterior=0;
+            this.motor.setViewVisibility(this.imgVidas.uid,true);
+            this.lblNumVidas.setTexto("Has perdido!!!");
+            setTimeout(function() {
+        
+               
+              }, 3000);
+
+        }else{
+            this.motor.setViewVisibility(this.imgVidas.uid,true);
+            this.lblNumVidas.setTexto("Te quedan: " + numVidas + " vidas.");
+            setTimeout(function() {
+                aux.motor.setViewVisibility(aux.imgVidas.uid,false);
+              }, 3000);
+        }
        
         
     }
