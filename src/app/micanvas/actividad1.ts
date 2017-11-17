@@ -238,7 +238,19 @@ export class Actividad1 implements EventsAdminListener{
             this.motor.setViewVisibility(this.panelMenu.uid,true);
         }
 
+    if(btn==this.botonSalir){
+    this.motor.setViewVisibility(this.panelMenu.uid,false);
+    }
 
+    if(btn==this.botonInicio){
+    this.motor.setViewVisibility(this.panelMenu.uid,false);
+    this.motor.setViewVisibility(this.window1.uid,true);
+    this.motor.setViewVisibility(this.imgGanador.uid,false);
+    this.motor.setViewVisibility(this.imgVidas.uid,false);
+   this.indicePreguntaAnterior=this.indicePreguntaSiguiente;
+ 
+    this.seteoTexto(this.indicePreguntaSiguiente);
+    this.indicePreguntaSiguiente++;
     
     }
 
