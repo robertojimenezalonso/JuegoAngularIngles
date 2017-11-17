@@ -53,94 +53,13 @@ export class Actividad1 implements EventsAdminListener{
      * DE SALIR EN LA ESQUINA COMO SALE EN EL LA PAGINA WEB. HABRA QUE QUITAR EL PANEL Y USAR WINDOW
      */
     private crearEscenarioMenu():void{
-        let pmw=DataHolder.instance.nScreenWidth*0.3;
-        let pmh=DataHolder.instance.nScreenHeight*0.45;
-        let pmx=DataHolder.instance.nScreenWidth2-(pmw>>1);
-        let pmy=DataHolder.instance.nScreenHeight2-(pmh>>1);
-       
-        this.panelMenu=new Imagen(this.motor,pmx,pmy,pmw,pmh);
-        this.panelMenu.setImg('./assets/transparente.png');
-        this.motor.addViewToParentView(this.imagenFondo,this.panelMenu);
-        
-        this.botonInicio = new Button(this.motor,this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/1.3,this.panelMenu.w/2,this.panelMenu.h/8);
-        this.botonInicio.setImagePath('./assets/btn.png');
-        this.botonInicio.setTexto("New game");
-        this.motor.addViewToParentView(this.panelMenu,this.botonInicio);
-        this.botonInicio.setListener(this);
-        
-        this.botonCargar = new Button(this.motor,this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/1.78,this.panelMenu.w/2,this.panelMenu.h/8);
-        this.botonCargar.setImagePath('./assets/btn.png');
-        this.botonCargar.setTexto("Charge");
-        this.motor.addViewToParentView(this.panelMenu,this.botonCargar);
-        this.botonCargar.setListener(this);
-        
-        this.botonSalir = new Button(this.motor,this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/2.7,this.panelMenu.w/2,this.panelMenu.h/8);
-        this.botonSalir.setImagePath('./assets/btn.png');
-        this.botonSalir.setTexto("Out");
-        this.motor.addViewToParentView(this.panelMenu,this.botonSalir);
-        this.botonSalir.setListener(this);
+   
     
     }
 
     private crearEscenarioJuego():void{
 
-        let pmw=DataHolder.instance.nScreenWidth*0.3;
-        let pmh=DataHolder.instance.nScreenHeight*0.45;
-        let pmx=DataHolder.instance.nScreenWidth2-(pmw>>1);
-        let pmy=DataHolder.instance.nScreenHeight2-(pmh>>1);
-        this.window1=new Window(this.motor,0,0,DataHolder.instance.nScreenWidth,DataHolder.instance.nScreenHeight);
-        this.motor.addViewToParentView(this.imagenFondo,this.window1);
-
-        this.lblPregunta = new Label(this.motor,this.window1.w-this.window1.w/1.58,this.window1.h-this.window1.h/1.2,this.window1.w/5,this.window1.h/18);
-        this.lblPregunta.setTexto("Pregunta");
-        this.motor.addViewToParentView(this.window1,this.lblPregunta);
-        this.lblPregunta.setFontColor('white');
-   
-
-
-        this.respuesta1 = new Button(this.motor,this.window1.w-this.window1.w/1.43,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/18);
-        this.respuesta1.setImagePath('./assets/btn.png');
-        this.respuesta1.setTexto(null);
-        this.respuesta1.blVisible=true;
-        this.motor.addViewToParentView(this.window1,this.respuesta1);
-        this.respuesta1.setListener(this);
-       
-        this.respuesta2 = new Button(this.motor,this.window1.w-this.window1.w/1.93,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/18);
-        this.respuesta2.setImagePath('./assets/btn.png');
-        this.respuesta2.setTexto(null);
-        this.respuesta2.blVisible=true;
-        this.motor.addViewToParentView(this.window1,this.respuesta2);
-        this.respuesta2.setListener(this);
-        
-        this.respuesta3 = new Button(this.motor,this.window1.w-this.window1.w/1.13,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/18);
-        this.respuesta3.setImagePath('./assets/btn.png');
-        this.respuesta3.setTexto(null);
-        this.respuesta3.blVisible=true;
-        this.motor.addViewToParentView(this.window1,this.respuesta3);
-        this.respuesta3.setListener(this);
-        
-
-        this.respuesta4 = new Button(this.motor,this.window1.w-this.window1.w/2.93,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/18);
-        this.respuesta4.setImagePath('./assets/btn.png');
-        this.respuesta4.setTexto(null);
-        this.respuesta4.blVisible=true;
-        this.motor.addViewToParentView(this.window1,this.respuesta4);
-        this.respuesta4.setListener(this);
-       
-        this.imgGanador = new Imagen(this.motor,pmx,pmy,pmw,pmh);
-        this.imgGanador.setImg('./assets/enhorabuena.png');
-        this.motor.addViewToParentView(this.window1,this.imgGanador);
-
-
-        this.imgVidas = new Imagen(this.motor,pmx,pmy,pmw,pmh);
-        this.imgVidas.setImg('./assets/vidas.jpg');
-        this.motor.addViewToParentView(this.window1,this.imgVidas);
-        this.lblNumVidas = new Label(this.motor, this.imgVidas.w-this.imgVidas.w/1.5,this.imgVidas.y,this.imgVidas.w/2,this.imgVidas.h/16);
-        this.motor.addViewToParentView(this.imgVidas,this.lblNumVidas);
-        
-        this.window1.btnWindow.setListener(this);
-        
-        
+    
 
    
     }
@@ -148,79 +67,26 @@ export class Actividad1 implements EventsAdminListener{
 
     private seteoImgGanador():void{
        
-        var aux=this;
-        
-        this.motor.setViewVisibility(this.imgGanador.uid,true);
-        this.bPreguntas(false);
-        
-        setTimeout(function() {
-            aux.motor.setViewVisibility(aux.window1.uid,false);
-            aux.motor.setViewVisibility(aux.panelMenu.uid,true);
-            aux.indicePreguntaSiguiente=0;
-            console.log("indice" + aux.indicePreguntaSiguiente);
-          }, 3000);
-          
-        
+   
     }
 
 
     private seteoImgPerdedor(numVidas:number):void{
         var aux=this;
-        console.log("tus vidas son: " +numVidas);
-        if(numVidas<0){
-            this.vidasJuego=3;
-            this.indicePreguntaSiguiente=0;
-            this.indicePreguntaAnterior=0;
-            this.motor.setViewVisibility(this.imgVidas.uid,true);
-            this.lblNumVidas.setTexto("Has perdido!!!");
-            setTimeout(function() {
-                aux.motor.setViewVisibility(aux.imgVidas.uid,false);
-                aux.motor.setViewVisibility(aux.window1.uid,false);
-                aux.motor.setViewVisibility(aux.panelMenu.uid,true);
-               
-              }, 3000);
-
-        }else{
-            this.motor.setViewVisibility(this.imgVidas.uid,true);
-            this.lblNumVidas.setTexto("Te quedan: " + numVidas + " vidas.");
-            setTimeout(function() {
-                aux.motor.setViewVisibility(aux.imgVidas.uid,false);
-              }, 3000);
-        }
+     
        
         
     }
 
 
     private bPreguntas(blVisible:boolean):void{
-        this.motor.setViewVisibility(this.lblPregunta.uid,blVisible);
-        this.motor.setViewVisibility(this.respuesta1.uid,blVisible);
-        this.motor.setViewVisibility(this.respuesta2.uid,blVisible);
-        this.motor.setViewVisibility(this.respuesta3.uid,blVisible);
-        this.motor.setViewVisibility(this.respuesta4.uid,blVisible);
+   
 
     }
 
     private seteoTexto(num:number):void{
       
-        if(this.resp[num]==null){
-            this.seteoImgGanador();
-        }else{
-            this.lblPregunta.setTexto(this.preg[num]);
-            for (var index = 0; index < this.resp[num].length; index++) {
-                if(index==0){
-                    this.respuesta1.setTexto(this.resp[num][index]);
-                }else if(index==1){
-                    this.respuesta2.setTexto(this.resp[num][index]);
-                }else if(index==2){
-                    this.respuesta3.setTexto(this.resp[num][index]);
-                }else if(index==3){
-                    this.respuesta4.setTexto(this.resp[num][index]);
-                } 
-                    
-            }
-        }
-        
+    
             
     }
 
@@ -238,186 +104,26 @@ export class Actividad1 implements EventsAdminListener{
             this.motor.setViewVisibility(this.panelMenu.uid,true);
         }
 
-    if(btn==this.botonSalir){
-    this.motor.setViewVisibility(this.panelMenu.uid,false);
-    }
 
-    if(btn==this.botonInicio){
-    this.motor.setViewVisibility(this.panelMenu.uid,false);
-    this.motor.setViewVisibility(this.window1.uid,true);
-    this.motor.setViewVisibility(this.imgGanador.uid,false);
-    this.motor.setViewVisibility(this.imgVidas.uid,false);
-   this.indicePreguntaAnterior=this.indicePreguntaSiguiente;
- 
-    this.seteoTexto(this.indicePreguntaSiguiente);
-    this.indicePreguntaSiguiente++;
     
     }
 
 
     if(btn==this.botonCargar){
-        if(this.indicePreguntaSiguiente==0){
-            console.log("No hay nada que continuar");
-        }else{
-            this.motor.setViewVisibility(this.panelMenu.uid,false);
-            this.continuarJuego(this.indicePreguntaAnterior);
-            this.motor.setViewVisibility(this.window1.uid,true);
-            this.motor.setViewVisibility(this.imgVidas.uid,false);
-            this.motor.setViewVisibility(this.imgGanador.uid,false);
-        }
-       
+ 
         
         }
 
-    if(btn==this.respuesta1){
-        this.indicePreguntaAnterior=this.indicePreguntaSiguiente;
-        for (var index = 0; index < this.respCorrecta.length; index++) {
-           if(this.respuesta1.getTexto()==this.respCorrecta[index]){
-            console.log("es correcta");
-            this.seteoTexto(this.indicePreguntaSiguiente);
-            this.indicePreguntaSiguiente++;
-           
-           }
-         
-        }
 
-        if(this.indicePreguntaSiguiente==this.indicePreguntaAnterior){
-            this.seteoImgPerdedor(--this.vidasJuego);
-
-        }
-
-
-    
-    }
-
-    if(btn==this.respuesta2){
-        console.log("btn2");
-        this.indicePreguntaAnterior=this.indicePreguntaSiguiente;
-        for (var index = 0; index < this.respCorrecta.length; index++) {
-            if(this.respuesta2.getTexto()==this.respCorrecta[index]){
-             console.log("es correcta");
-             this.seteoTexto(this.indicePreguntaSiguiente);
-             this.indicePreguntaSiguiente++;
-          
-            }
-                   
-         }
-
-         if(this.indicePreguntaSiguiente==this.indicePreguntaAnterior){
-            this.seteoImgPerdedor(--this.vidasJuego);
-
-        }
-           
-           }
-
-
-
-
-           if(btn==this.respuesta3){
-            this.indicePreguntaAnterior=this.indicePreguntaSiguiente;
-            for (var index = 0; index < this.respCorrecta.length; index++) {
-                if(this.respuesta3.getTexto()==this.respCorrecta[index]){
-                 console.log("es correcta");
-                 this.seteoTexto(this.indicePreguntaSiguiente);
-                 this.indicePreguntaSiguiente++;
-               
-                }
-               
-             }
-             if(this.indicePreguntaSiguiente==this.indicePreguntaAnterior){
-                this.seteoImgPerdedor(--this.vidasJuego);
-    
-            }
-               
-               }
-
-               if(btn==this.respuesta4){
-                this.indicePreguntaAnterior=this.indicePreguntaSiguiente;
-                for (var index = 0; index < this.respCorrecta.length; index++) {
-                    if(this.respuesta4.getTexto()==this.respCorrecta[index]){
-                     console.log("es correcta");
-                     this.seteoTexto(this.indicePreguntaSiguiente);
-                     this.indicePreguntaSiguiente++;
-                    
-                    }
-                  
-                 }
-
-                 if(this.indicePreguntaSiguiente==this.indicePreguntaAnterior){
-                    this.seteoImgPerdedor(--this.vidasJuego);
-        
-                }
-                   
-                   }
-               
-
-                }
 
       
     screenSizeChanged?(vWidth:number,vHeight:number):void{
 
-        let pmw=DataHolder.instance.nScreenWidth*0.3;
-        let pmh=DataHolder.instance.nScreenHeight*0.45;
-        let pmx=DataHolder.instance.nScreenWidth2-(pmw>>1);
-        let pmy=DataHolder.instance.nScreenHeight2-(pmh>>1);
 
         console.log("SE HA ACTUALIZADO EL TEMAÑO DE LA PANTALLA");
 
      
-        this.imagenFondo.setSize(DataHolder.instance.nScreenWidth,DataHolder.instance.nScreenHeight);
-
-        this.panelMenu.setPosition(pmx,pmy);
-        this.panelMenu.setSize(pmw,pmh); 
-
         
-        this.botonInicio.setSize(this.panelMenu.w/2,this.panelMenu.h/8);
-        this.botonInicio.setPosition(this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/1.3);
-
-        
-        this.botonCargar.setSize(this.panelMenu.w/2,this.panelMenu.h/8); 
-        this.botonCargar.setPosition(this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/1.78);
-
-        this.botonSalir.setSize(this.panelMenu.w/2,this.panelMenu.h/8);
-        this.botonSalir.setPosition(this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/2.7);
-
-      
-        this.window1.setSize(DataHolder.instance.nScreenWidth,DataHolder.instance.nScreenHeight);
-      
-
-        
-
-        this.respuesta1.setSize(this.window1.w/7,this.window1.h/18);
-        this.respuesta1.setPosition(this.window1.w-this.window1.w/1.43,this.window1.h-this.window1.h/1.5);
-
-
-       
-
-        this.respuesta2.setSize(this.window1.w/7,this.window1.h/18);
-        this.respuesta2.setPosition(this.window1.w-this.window1.w/1.93,this.window1.h-this.window1.h/1.5);
-
-        this.respuesta3.setSize(this.window1.w/7,this.window1.h/18);
-        this.respuesta3.setPosition(this.window1.w-this.window1.w/1.13,this.window1.h-this.window1.h/1.5);
-
-        this.respuesta4.setSize(this.window1.w/7,this.window1.h/18);
-        this.respuesta4.setPosition(this.window1.w-this.window1.w/2.93,this.window1.h-this.window1.h/1.5);
-
-        this.window1.btnWindow.setSize(this.window1.w/7,this.window1.h/18);
-        this.window1.btnWindow.setPosition(this.window1.w-this.window1.w/5.5,this.window1.h-this.window1.h/1.04);
-
-        
-
-        this.lblPregunta.setSize(this.window1.w/5,this.window1.h/18);
-        this.lblPregunta.setPosition(this.window1.w-this.window1.w/1.58,this.window1.h-this.window1.h/1.2);
-
-        this.imgGanador.setSize(pmw,pmh);
-        this.imgGanador.setPosition(pmx,pmy);
-
-        this.imgVidas.setSize(pmw,pmh);
-        this.imgVidas.setPosition(pmx,pmy);
-
-        this.lblNumVidas.setSize(this.imgVidas.w/2,this.imgVidas.h/16);
-        this.lblNumVidas.setPosition(this.imgVidas.w-this.imgVidas.w/1.5,this.imgVidas.y);
-
 
       
       }
