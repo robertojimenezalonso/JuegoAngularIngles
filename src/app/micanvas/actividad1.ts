@@ -364,7 +364,25 @@ export class Actividad1 implements EventsAdminListener{
         console.log("SE HA ACTUALIZADO EL TEMAÑO DE LA PANTALLA");
 
      
+        this.imagenFondo.setSize(DataHolder.instance.nScreenWidth,DataHolder.instance.nScreenHeight);
+
+        this.panelMenu.setPosition(pmx,pmy);
+        this.panelMenu.setSize(pmw,pmh); 
+
         
+        this.botonInicio.setSize(this.panelMenu.w/2,this.panelMenu.h/8);
+        this.botonInicio.setPosition(this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/1.3);
+
+        
+        this.botonCargar.setSize(this.panelMenu.w/2,this.panelMenu.h/8); 
+        this.botonCargar.setPosition(this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/1.78);
+
+        this.botonSalir.setSize(this.panelMenu.w/2,this.panelMenu.h/8);
+        this.botonSalir.setPosition(this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/2.7);
+
+      
+    
+
 
       
       }
