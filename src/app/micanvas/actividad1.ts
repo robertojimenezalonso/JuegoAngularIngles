@@ -84,7 +84,63 @@ export class Actividad1 implements EventsAdminListener{
 
     private crearEscenarioJuego():void{
 
-    
+        let pmw=DataHolder.instance.nScreenWidth*0.3;
+        let pmh=DataHolder.instance.nScreenHeight*0.45;
+        let pmx=DataHolder.instance.nScreenWidth2-(pmw>>1);
+        let pmy=DataHolder.instance.nScreenHeight2-(pmh>>1);
+        this.window1=new Window(this.motor,0,0,DataHolder.instance.nScreenWidth,DataHolder.instance.nScreenHeight);
+        this.motor.addViewToParentView(this.imagenFondo,this.window1);
+
+        this.lblPregunta = new Label(this.motor,this.window1.w-this.window1.w/1.58,this.window1.h-this.window1.h/1.2,this.window1.w/5,this.window1.h/18);
+        this.lblPregunta.setTexto("Pregunta");
+        this.motor.addViewToParentView(this.window1,this.lblPregunta);
+        this.lblPregunta.setFontColor('white');
+   
+
+
+        this.respuesta1 = new Button(this.motor,this.window1.w-this.window1.w/1.43,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/18);
+        this.respuesta1.setImagePath('./assets/btn.png');
+        this.respuesta1.setTexto(null);
+        this.respuesta1.blVisible=true;
+        this.motor.addViewToParentView(this.window1,this.respuesta1);
+        this.respuesta1.setListener(this);
+       
+        this.respuesta2 = new Button(this.motor,this.window1.w-this.window1.w/1.93,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/18);
+        this.respuesta2.setImagePath('./assets/btn.png');
+        this.respuesta2.setTexto(null);
+        this.respuesta2.blVisible=true;
+        this.motor.addViewToParentView(this.window1,this.respuesta2);
+        this.respuesta2.setListener(this);
+        
+        this.respuesta3 = new Button(this.motor,this.window1.w-this.window1.w/1.13,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/18);
+        this.respuesta3.setImagePath('./assets/btn.png');
+        this.respuesta3.setTexto(null);
+        this.respuesta3.blVisible=true;
+        this.motor.addViewToParentView(this.window1,this.respuesta3);
+        this.respuesta3.setListener(this);
+        
+
+        this.respuesta4 = new Button(this.motor,this.window1.w-this.window1.w/2.93,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/18);
+        this.respuesta4.setImagePath('./assets/btn.png');
+        this.respuesta4.setTexto(null);
+        this.respuesta4.blVisible=true;
+        this.motor.addViewToParentView(this.window1,this.respuesta4);
+        this.respuesta4.setListener(this);
+       
+        this.imgGanador = new Imagen(this.motor,pmx,pmy,pmw,pmh);
+        this.imgGanador.setImg('./assets/enhorabuena.png');
+        this.motor.addViewToParentView(this.window1,this.imgGanador);
+
+
+        this.imgVidas = new Imagen(this.motor,pmx,pmy,pmw,pmh);
+        this.imgVidas.setImg('./assets/vidas.jpg');
+        this.motor.addViewToParentView(this.window1,this.imgVidas);
+        this.lblNumVidas = new Label(this.motor, this.imgVidas.w-this.imgVidas.w/1.5,this.imgVidas.y,this.imgVidas.w/2,this.imgVidas.h/16);
+        this.motor.addViewToParentView(this.imgVidas,this.lblNumVidas);
+        
+        this.window1.btnWindow.setListener(this);
+        
+        
 
    
     }
