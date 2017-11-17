@@ -256,10 +256,92 @@ export class Actividad1 implements EventsAdminListener{
 
 
     if(btn==this.botonCargar){
- 
+        if(this.indicePreguntaSiguiente==0){
+            console.log("No hay nada que continuar");
+        }else{
+            this.motor.setViewVisibility(this.panelMenu.uid,false);
+            this.continuarJuego(this.indicePreguntaAnterior);
+            this.motor.setViewVisibility(this.window1.uid,true);
+            this.motor.setViewVisibility(this.imgVidas.uid,false);
+            this.motor.setViewVisibility(this.imgGanador.uid,false);
+        }
+       
         
         }
 
+    if(btn==this.respuesta1){
+        this.indicePreguntaAnterior=this.indicePreguntaSiguiente;
+        for (var index = 0; index < this.respCorrecta.length; index++) {
+           if(this.respuesta1.getTexto()==this.respCorrecta[index]){
+            console.log("es correcta");
+            this.seteoTexto(this.indicePreguntaSiguiente);
+            this.indicePreguntaSiguiente++;
+           
+           }
+         
+        }
+
+        if(this.indicePreguntaSiguiente==this.indicePreguntaAnterior){
+            this.seteoImgPerdedor(--this.vidasJuego);
+
+        }
+
+
+    
+    }
+
+    if(btn==this.respuesta2){
+        console.log("btn2");
+        this.indicePreguntaAnterior=this.indicePreguntaSiguiente;
+        for (var index = 0; index < this.respCorrecta.length; index++) {
+            if(this.respuesta2.getTexto()==this.respCorrecta[index]){
+             console.log("es correcta");
+             this.seteoTexto(this.indicePreguntaSiguiente);
+             this.indicePreguntaSiguiente++;
+          
+            }
+                   
+         }
+
+         if(this.indicePreguntaSiguiente==this.indicePreguntaAnterior){
+            this.seteoImgPerdedor(--this.vidasJuego);
+
+        }
+           
+           }
+
+
+
+
+           if(btn==this.respuesta3){
+            this.indicePreguntaAnterior=this.indicePreguntaSiguiente;
+            for (var index = 0; index < this.respCorrecta.length; index++) {
+                if(this.respuesta3.getTexto()==this.respCorrecta[index]){
+                 console.log("es correcta");
+                 this.seteoTexto(this.indicePreguntaSiguiente);
+                 this.indicePreguntaSiguiente++;
+               
+                }
+               
+             }
+             if(this.indicePreguntaSiguiente==this.indicePreguntaAnterior){
+                this.seteoImgPerdedor(--this.vidasJuego);
+    
+            }
+               
+               }
+
+               if(btn==this.respuesta4){
+                this.indicePreguntaAnterior=this.indicePreguntaSiguiente;
+                for (var index = 0; index < this.respCorrecta.length; index++) {
+                    if(this.respuesta4.getTexto()==this.respCorrecta[index]){
+                     console.log("es correcta");
+                     this.seteoTexto(this.indicePreguntaSiguiente);
+                     this.indicePreguntaSiguiente++;
+                    
+                    }
+                  
+                 }
 
 
       
