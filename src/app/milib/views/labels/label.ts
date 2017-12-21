@@ -95,7 +95,7 @@ export class Label extends View{
             vctx.fillRect(this.xa, this.ya, this.w, this.h);
         }
         if(this.sTexto!=null){
-            //vctx.font = "30px Comic Sans MS";
+            vctx.font = "30px Comic Sans MS";
             //vctx.fillStyle ='#FF0000';
             //vctx.textBaseline='top';
             if(this.sFontStyle!=null)vctx.font = this.sFontStyle;

@@ -29,9 +29,10 @@ export class Actividad1 implements EventsAdminListener{
     private vidasJuego:number=3;
     private lblNumVidas:Label;
     private indicePreguntaAnterior:number=0;
-    private preg = ["What is round and the people put it in their heads?", "What type of shoes wear the people when it rain to much in their", "What is round and the people put it in their heads?", "What is round and the people put it in their heads?"];
-    private resp = [["Hats", "Socks", "Pants", "T-shirt"],["Blue shoes", "Boots", "Nothing", "Flip flops"],["Hats", "Socks", "Pants", "T-shirt"],["Hats", "Socks", "Pants", "T-shirt"]];
-    private respCorrecta = ["Hats", "Boots", "Hats", "Hats"];
+    private preg = ["¿Qué se ponen las personas en la cabeza?", "¿Qué tipo de zapatos lleva la gente cuando lueve?", "¿Quién de estas personas es un hombre?", "¿Cuál de estos avances tecnológicos es un ordenador?"];
+    private resp = [[".", "", "", ""],["", ".", "", ""],["", "", ".", ""],["", ".", "", ""]];
+    private respImg = [['./assets/hats.png', './assets/shocks.png', './assets/pants.png', './assets/tshirt.png'],['./assets/shoes.png', './assets/boots.png', './assets/nothing.png', './assets/flipflop.png'],['./assets/boy.png', './assets/girl.png', './assets/man.png', './assets/woman.png'],['./assets/lamp.png', './assets/computer.png', './assets/printer.png', './assets/car.png']];
+    private respCorrecta = [".", ".", ".", "."];
     
 
     constructor(vMotor:Motor){
@@ -62,21 +63,21 @@ export class Actividad1 implements EventsAdminListener{
         this.panelMenu.setImg('./assets/transparente.png');
         this.motor.addViewToParentView(this.imagenFondo,this.panelMenu);
         
-        this.botonInicio = new Button(this.motor,this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/1.3,this.panelMenu.w/2,this.panelMenu.h/8);
+        this.botonInicio = new Button(this.motor,this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/1.3,this.panelMenu.w/2,this.panelMenu.h/6);
         this.botonInicio.setImagePath('./assets/btn.png');
         this.botonInicio.setTexto("New game");
         this.motor.addViewToParentView(this.panelMenu,this.botonInicio);
         this.botonInicio.setListener(this);
         
-        this.botonCargar = new Button(this.motor,this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/1.78,this.panelMenu.w/2,this.panelMenu.h/8);
+        this.botonCargar = new Button(this.motor,this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/1.78,this.panelMenu.w/2,this.panelMenu.h/6);
         this.botonCargar.setImagePath('./assets/btn.png');
-        this.botonCargar.setTexto("Charge");
+        this.botonCargar.setTexto("Load");
         this.motor.addViewToParentView(this.panelMenu,this.botonCargar);
         this.botonCargar.setListener(this);
         
-        this.botonSalir = new Button(this.motor,this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/2.7,this.panelMenu.w/2,this.panelMenu.h/8);
+        this.botonSalir = new Button(this.motor,this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/2.7,this.panelMenu.w/2,this.panelMenu.h/6);
         this.botonSalir.setImagePath('./assets/btn.png');
-        this.botonSalir.setTexto("Out");
+        this.botonSalir.setTexto("Exit");
         this.motor.addViewToParentView(this.panelMenu,this.botonSalir);
         this.botonSalir.setListener(this);
     
@@ -94,25 +95,26 @@ export class Actividad1 implements EventsAdminListener{
         this.lblPregunta = new Label(this.motor,this.window1.w-this.window1.w/1.58,this.window1.h-this.window1.h/1.2,this.window1.w/5,this.window1.h/18);
         this.lblPregunta.setTexto("Pregunta");
         this.motor.addViewToParentView(this.window1,this.lblPregunta);
-        this.lblPregunta.setFontColor('white');
+        this.lblPregunta.setFontColor('gray');
+       
    
 
 
-        this.respuesta1 = new Button(this.motor,this.window1.w-this.window1.w/1.43,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/18);
+        this.respuesta1 = new Button(this.motor,this.window1.w-this.window1.w/1.43,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/3);
         this.respuesta1.setImagePath('./assets/btn.png');
         this.respuesta1.setTexto(null);
         this.respuesta1.blVisible=true;
         this.motor.addViewToParentView(this.window1,this.respuesta1);
         this.respuesta1.setListener(this);
        
-        this.respuesta2 = new Button(this.motor,this.window1.w-this.window1.w/1.93,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/18);
+        this.respuesta2 = new Button(this.motor,this.window1.w-this.window1.w/1.93,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/3);
         this.respuesta2.setImagePath('./assets/btn.png');
         this.respuesta2.setTexto(null);
         this.respuesta2.blVisible=true;
         this.motor.addViewToParentView(this.window1,this.respuesta2);
         this.respuesta2.setListener(this);
         
-        this.respuesta3 = new Button(this.motor,this.window1.w-this.window1.w/1.13,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/18);
+        this.respuesta3 = new Button(this.motor,this.window1.w-this.window1.w/1.13,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/3);
         this.respuesta3.setImagePath('./assets/btn.png');
         this.respuesta3.setTexto(null);
         this.respuesta3.blVisible=true;
@@ -120,7 +122,7 @@ export class Actividad1 implements EventsAdminListener{
         this.respuesta3.setListener(this);
         
 
-        this.respuesta4 = new Button(this.motor,this.window1.w-this.window1.w/2.93,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/18);
+        this.respuesta4 = new Button(this.motor,this.window1.w-this.window1.w/2.93,this.window1.h-this.window1.h/1.5,this.window1.w/7,this.window1.h/3);
         this.respuesta4.setImagePath('./assets/btn.png');
         this.respuesta4.setTexto(null);
         this.respuesta4.blVisible=true;
@@ -166,13 +168,13 @@ export class Actividad1 implements EventsAdminListener{
 
     private seteoImgPerdedor(numVidas:number):void{
         var aux=this;
-        console.log("tus vidas son: " +numVidas);
+        console.log("Your lives are: " +numVidas);
         if(numVidas<0){
             this.vidasJuego=3;
             this.indicePreguntaSiguiente=0;
             this.indicePreguntaAnterior=0;
             this.motor.setViewVisibility(this.imgVidas.uid,true);
-            this.lblNumVidas.setTexto("Has perdido!!!");
+            this.lblNumVidas.setTexto("You lost!!!");
             setTimeout(function() {
                 aux.motor.setViewVisibility(aux.imgVidas.uid,false);
                 aux.motor.setViewVisibility(aux.window1.uid,false);
@@ -182,7 +184,7 @@ export class Actividad1 implements EventsAdminListener{
 
         }else{
             this.motor.setViewVisibility(this.imgVidas.uid,true);
-            this.lblNumVidas.setTexto("Te quedan: " + numVidas + " vidas.");
+            this.lblNumVidas.setTexto("You have: " + numVidas + " lives");
             setTimeout(function() {
                 aux.motor.setViewVisibility(aux.imgVidas.uid,false);
               }, 3000);
@@ -210,12 +212,16 @@ export class Actividad1 implements EventsAdminListener{
             for (var index = 0; index < this.resp[num].length; index++) {
                 if(index==0){
                     this.respuesta1.setTexto(this.resp[num][index]);
+                    this.respuesta1.setImagePath(this.respImg[num][index]);
                 }else if(index==1){
                     this.respuesta2.setTexto(this.resp[num][index]);
+                    this.respuesta2.setImagePath(this.respImg[num][index]);
                 }else if(index==2){
                     this.respuesta3.setTexto(this.resp[num][index]);
+                    this.respuesta3.setImagePath(this.respImg[num][index]);
                 }else if(index==3){
                     this.respuesta4.setTexto(this.resp[num][index]);
+                    this.respuesta4.setImagePath(this.respImg[num][index]);
                 } 
                     
             }
@@ -370,14 +376,14 @@ export class Actividad1 implements EventsAdminListener{
         this.panelMenu.setSize(pmw,pmh); 
 
         
-        this.botonInicio.setSize(this.panelMenu.w/2,this.panelMenu.h/8);
+        this.botonInicio.setSize(this.panelMenu.w/2,this.panelMenu.h/6);
         this.botonInicio.setPosition(this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/1.3);
 
         
-        this.botonCargar.setSize(this.panelMenu.w/2,this.panelMenu.h/8); 
+        this.botonCargar.setSize(this.panelMenu.w/2,this.panelMenu.h/6); 
         this.botonCargar.setPosition(this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/1.78);
 
-        this.botonSalir.setSize(this.panelMenu.w/2,this.panelMenu.h/8);
+        this.botonSalir.setSize(this.panelMenu.w/2,this.panelMenu.h/6);
         this.botonSalir.setPosition(this.panelMenu.w-this.panelMenu.w/1.34,this.panelMenu.h-this.panelMenu.h/2.7);
 
       
@@ -386,19 +392,19 @@ export class Actividad1 implements EventsAdminListener{
 
         
 
-        this.respuesta1.setSize(this.window1.w/7,this.window1.h/18);
+        this.respuesta1.setSize(this.window1.w/7,this.window1.h/3);
         this.respuesta1.setPosition(this.window1.w-this.window1.w/1.43,this.window1.h-this.window1.h/1.5);
 
 
        
 
-        this.respuesta2.setSize(this.window1.w/7,this.window1.h/18);
+        this.respuesta2.setSize(this.window1.w/7,this.window1.h/3);
         this.respuesta2.setPosition(this.window1.w-this.window1.w/1.93,this.window1.h-this.window1.h/1.5);
 
-        this.respuesta3.setSize(this.window1.w/7,this.window1.h/18);
+        this.respuesta3.setSize(this.window1.w/7,this.window1.h/3);
         this.respuesta3.setPosition(this.window1.w-this.window1.w/1.13,this.window1.h-this.window1.h/1.5);
 
-        this.respuesta4.setSize(this.window1.w/7,this.window1.h/18);
+        this.respuesta4.setSize(this.window1.w/7,this.window1.h/3);
         this.respuesta4.setPosition(this.window1.w-this.window1.w/2.93,this.window1.h-this.window1.h/1.5);
 
         this.window1.btnWindow.setSize(this.window1.w/7,this.window1.h/18);
